@@ -11,5 +11,7 @@ IPV6=`ip addr show dev eth0 scope global | grep 'inet6' | cut -d ' ' -f 6 | cut 
 
 export USERNAME PASSWORD DOMAIN_SLD DOMAIN_TLD TARGET_HOST
 
-python domainkeskus-update-dns.py $IPV4 $IPV6
+SCRIPT_PATH=`dirname $0`
+
+python "$SCRIPT_PATH/domainkeskus-update-dns.py" $IPV4 $IPV6
 
