@@ -1,0 +1,15 @@
+[Unit]
+Description=Domainkeskus ACME TXT record server (lego httpreq)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=acme
+Group=acme
+ExecStart=/opt/domainkeskus-update-dns/update-txt-acme-lego-server/domainkeskus-acme-server.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
